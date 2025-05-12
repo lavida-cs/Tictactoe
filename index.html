@@ -1,14 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title></title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Tic Tac Toe Game</title>
+   <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 </head>
 
 <body>
+   <div class="screen--setup">
+      <p class="logo">XO</p>
+      <div class="mark-select-container">
+         <p>PICK PLAYER 1'S MARK</p>
+         <label class="toggle-wrapper">
+            <span class="mark--x">X</span>
+            <span class="mark--o">O</span>
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-slider"></span>
+         </label>
+         <p>REMEMBER X GOES FIRST</p>
+      </div>
+      <button class="btn--cpu">NEW GAME (VS CPU)</button>
+      <button class="btn--player">NEW GAME (VS PLAYER)</button>
+   </div>
    
+   
+   <div class="screen--game hide">
+      <div class="header">
+         <p class="logo">XO</p>
+         <div class="mark-turn-area">
+            <span class="mark-turn">X</span> TURN
+         </div>
+         <button class="btn--restart">R</button>
+      </div>
+      
+      <div class="game-board">
+         <div class="box" data-index="0"></div>
+         <div class="box" data-index="1"></div>
+         <div class="box" data-index="2"></div>
+         <div class="box" data-index="3"></div>
+         <div class="box" data-index="4"></div>
+         <div class="box" data-index="5"></div>
+         <div class="box" data-index="6"></div>
+         <div class="box" data-index="7"></div>
+         <div class="box" data-index="8"></div>
+      </div>
+      
+      <div class="stats">
+         <div class="stat stat--x">
+            <p>X (YOU)</p>
+            <p class="score--x">0</p>
+         </div>
+         <div class="stat stat--tie">
+            <p>TIE</p>
+            <p class="score--tie">0</p>
+         </div>
+         <div class="stat stat--o">
+            <p>O (CPU)</p>
+            <p class="score--o">0</p>
+         </div>
+      </div>
+   </div>
+   
+   
+   <div class="popup-modal hide">
+      <p class="">YOU WON!</p>
+      <P><span class="win-mark"></span> TAKES THE ROUND</P>
+      <div>
+         <button class="btn--quit">
+            QUIT
+         </button>
+         <button class="btn--next-round">
+            NEXT ROUND
+         </button>
+      </div>
+   </div>
+   
+   <div class="overlay hide"></div>
+   
+   <script src="/JavaScript/script.js"></script>
 </body>
 
 </html>

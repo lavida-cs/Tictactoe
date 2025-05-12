@@ -1,3 +1,372 @@
-/*
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
-*/
+/*box-shadow: 0px 8px 0px 0px hsla(199, 33%, 13%, 1);/
+
+/*------------------ Imports ------------------*/
+@import url("/css/fonts.css");
+
+/*------------------ Root Variables ------------------*/
+:root {
+   --clr-dark-700: hsla(199, 33%, 15%, 1);
+   --clr-dark-500: hsla(200, 35%, 19%, 1);
+   --clr-primary: hsla(39, 88%, 58%, 1);
+   --clr-secondary: hsla(178, 60%, 48%, 1);
+   --clr-tertiary: hsla(200, 23%, 72%, 1);
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   user-select: none;
+}
+
+button {
+   background: none;
+   border: 0;
+}
+
+
+body {
+   font-family: "Nunito", sans-serif;
+   font-weight: 600;
+   background: var(--clr-dark-700);
+}
+
+/*------------------ Setup Screen------------------*/
+
+.screen--setup {
+   width: 90%;
+   margin: 6rem auto;
+   text-align: center;
+}
+
+.logo {
+   font-size: 3.5rem;
+   letter-spacing: 10px;
+   font-weight: 800;
+   color: var(--clr-secondary);
+}
+
+.logo::first-letter {
+   color: var(--clr-primary);
+}
+
+.mark-select-container {
+   padding: 3rem 2rem;
+   border-radius: 10px;
+   background: var(--clr-dark-500);
+   box-shadow: 0px 8px 0px 0px hsla(199, 33%, 10%, 1);
+   margin-block: 3rem;
+}
+
+.mark-select-container p:first-child {
+   font-size: 1.25rem;
+   font-weight: 800;
+   color: var(--clr-tertiary);
+   letter-spacing: 2px;
+}
+
+.mark-select-container p:last-child {
+   font-size: 1.15rem;
+   color: hsla(200, 23%, 32%, 1);
+   font-weight: 700;
+   letter-spacing: 2px;
+}
+
+.toggle-wrapper {
+   display: block;
+   width: 100%;
+   height: 100px;
+   position: relative;
+   margin-block: 2rem;
+   border-radius: 10px;
+}
+
+.mark--x,
+.mark--o {
+   position: absolute;
+   font-size: 4rem;
+   font-weight: bold;
+   top: 10%;
+   z-index: 5;
+}
+
+.mark--o {
+   right: 100px;
+}
+
+.mark--x {
+   left: 100px;
+}
+
+.toggle-input {
+   width: 0;
+   height: 0;
+   appearance: none;
+}
+
+.toggle-slider {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: var(--clr-dark-700);
+   border-radius: 10px;
+}
+
+.toggle-slider::before {
+   content: "";
+   position: absolute;
+   left: 10px;
+   top: 10px;
+   width: 225px;
+   height: 80px;
+   background: var(--clr-tertiary);
+   border-radius: 10px;
+   transition: transform 0.15s ease-in;
+}
+
+.toggle-input:checked+.toggle-slider::before {
+   transform: translateX(95%);
+}
+
+.btn--cpu,
+.btn--player {
+   width: 100%;
+   padding: 1.4rem;
+   border-radius: 10px;
+   font: inherit;
+   font-weight: 800;
+   font-size: 1.3rem;
+}
+
+.btn--cpu {
+   background: var(--clr-primary);
+   box-shadow: 0px 8px 0px 0px hsla(39, 88%, 40%, 1);
+   margin-block-end: 2rem;
+}
+
+.btn--player {
+   background: var(--clr-secondary);
+   box-shadow: 0px 8px 0px 0px hsla(178, 60%, 30%, 1);
+}
+
+
+
+
+
+/*------------------ Game Screen ------------------*/
+.marker--x-clr{
+   color: var(--clr-secondary);
+}
+.marker--o-clr{
+   color: var(--clr-primary);
+}
+
+.screen--game {
+   width: 90%;
+   margin: 3rem auto;
+   
+}
+
+.screen--game .logo{
+   letter-spacing: 0;
+}
+
+.header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.mark-turn-area {
+   background: var(--clr-dark-500);
+   padding: .6rem 2rem;
+   box-shadow: 0px 4px 0px 0px hsla(200, 35%, 11%, 1);
+   border-radius: 5px;
+   font-size: 1.2rem;
+   color: var(--clr-tertiary);
+   letter-spacing: 2px;
+   font-weight: 800;
+}
+
+.mark-turn {
+   font-size: 1.5rem;
+}
+
+.btn--restart {
+   text-align: center;
+   padding: 0;
+   font-size: 1.6rem;
+   color: var(--clr-dark-700);
+   width: 70px;
+   height: 60px;
+   background: var(--clr-tertiary);
+   box-shadow: 0px 6px 0px 0px hsla(200, 23%, 60%, 1);
+   border-radius: 10px;
+   font-weight: 800;
+}
+
+.game-board{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 150px);
+   gap: 2rem;
+   margin-block: 6rem 4rem;
+}
+
+.box{
+   background: var(--clr-dark-500);
+   box-shadow: 0px 5px 0px 0px hsla(199, 33%, 10%, 1);
+   border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 800;
+   font-size: 4.5rem;
+  
+}
+
+.stats{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem
+}
+
+.stat{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   border-radius: 10px;
+   padding: 1rem 0;
+   font-weight: 700;
+   letter-spacing: 2px;
+}
+
+.stat--x{
+   background: var(--clr-secondary);
+}
+
+.stat--tie{
+   background: var(--clr-tertiary);
+}
+
+.stat--o{
+   background: var(--clr-primary);
+}
+
+.score--x,
+.score--tie,
+.score--o{
+   font-size: 1.3rem;
+   font-weight: 800;
+}
+
+
+/*------------------ Popup Modal  ------------------*/
+.popup-modal{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 100%;
+   text-align: center;
+   transform: translate(-50%, -50%);
+   padding: 5rem 2rem;
+   background: var(--clr-dark-500);
+   z-index: 5;
+}
+
+.popup-modal p:first-child{
+   color: var(--clr-tertiary);
+   font-size: 1.3rem;
+   font-weight: 700;
+   letter-spacing: 2px;
+}
+
+.popup-modal p:nth-child(2){
+   color: var(--clr-secondary);
+   font-size: 2rem;
+   letter-spacing: 2px;
+   font-weight: 800;
+   margin-block: 1rem 2rem;
+}
+
+ .win-mark{
+    font-size: 3rem;
+ }
+ 
+.popup-modal div{
+   width: 75%;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   gap: 1rem
+}
+
+.btn--quit,
+.btn--next-round{
+   padding: 1.3rem 0;
+   border-radius: 10px;
+   font-size: 1.2rem;
+   font-weight: 800;
+}
+
+.btn--quit{
+   background: var(--clr-tertiary);
+   box-shadow: 0px 6px 0px 0px hsla(200, 23%, 60%, 1);
+}
+
+.btn--next-round{
+   background: var(--clr-primary);
+   box-shadow: 0px 8px 0px 0px hsla(39, 88%, 40%, 1);
+}
+
+.overlay{
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background: hsla(199, 33%, 0%, 1);
+   opacity: 0.7;
+   z-index: 4;
+}
+
+
+.hide {
+   display: none;
+}
+
+.screen--game,
+.screen--setup{
+   animation: reveal 0.25s ease-in;
+}
+
+.popup-modal{
+   animation: reveal-popup 0.3s ease-in;
+}
+
+@keyframes reveal {
+   0%{
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   100%{
+      opacity: 1;
+      transform: translateX(0px);
+   }
+}
+
+@keyframes reveal-popup{
+   0%{
+      opacity: 0;
+      transform: translate(-50%,-50%) scale(0.9);
+   }
+   100%{
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+   }
+}
